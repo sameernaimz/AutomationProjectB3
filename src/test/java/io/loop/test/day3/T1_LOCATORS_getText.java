@@ -24,23 +24,23 @@ public class T1_LOCATORS_getText {
         driver.manage().window().maximize();
 
         WebElement userName = driver.findElement(By.id("input-14"));
-                userName.sendKeys(DoctorConstants.USERNAME_CLIENT);
+        userName.sendKeys(DoctorConstants.USERNAME_CLIENT);
 
 
         WebElement loginButton = driver.findElement(By.className("v-btn__content"));
         loginButton.click();
-            WebElement errorMessage = driver.findElement(By.className("v-messages__message"));
+        WebElement errorMessage = driver.findElement(By.className("v-messages__message"));
         System.out.println(errorMessage.getText());
         String actualErrorMessage = errorMessage.getText();
 
 
-
-        if(actualErrorMessage.equals(DoctorConstants.ERROR_MESSAGE)){
+        if (actualErrorMessage.equals(DoctorConstants.ERROR_MESSAGE)) {
             System.out.println("Expected error message: " + DoctorConstants.ERROR_MESSAGE + ", matches actual error message: " + actualErrorMessage + " => TEST PASS");
         } else {
             System.out.println("Expected error message: " + DoctorConstants.ERROR_MESSAGE + ", DOES NOT MATCH actual error message: " + actualErrorMessage + " => TEST FAIL");
         }
-        }
+
 
     }
 
+}

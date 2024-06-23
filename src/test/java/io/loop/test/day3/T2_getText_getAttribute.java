@@ -29,5 +29,15 @@ public class T2_getText_getAttribute {
         } else {
             System.err.println("Expected header for form: \"" + LoopCampConstants.EXPECTED_HEADER_FOR_FORM + "\", DOES NOT MATCH actual header: \"" + actualHeaderForForm + "\" => TEST FAILED");
         }
+        WebElement userNamePlaceHolder = driver.findElement(By.name("firstname"));
+        String actualPlaceHolderForFirstName = userNamePlaceHolder.getAttribute("placeholder");
+
+        if(actualPlaceHolderForFirstName.equals(LoopCampConstants.EXPECTED_PLACEHOLDER_FIRSTNAME)) {
+            System.out.println("Expected placeholder matches with actual");
+            System.out.println("Test PASSED");
+        } else {
+            System.out.println("Expected placeholder DOES NOT MATCH with actual");
+            System.out.println("Test Failed");
+        }
     }
 }

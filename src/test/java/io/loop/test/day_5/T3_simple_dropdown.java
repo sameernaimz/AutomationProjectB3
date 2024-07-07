@@ -2,6 +2,7 @@ package io.loop.test.day_5;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -24,6 +25,7 @@ public class T3_simple_dropdown {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
+
     @Test
     public void dropDownTest() {
         driver.get(" http://the-internet.herokuapp.com/dropdown");
@@ -32,6 +34,11 @@ public class T3_simple_dropdown {
         //WebElement dropDownElement =
         Select dropdown = new Select(driver.findElement(By.xpath("//select[@id='dropdown']")));
         actual = dropdown.getFirstSelectedOption().getText();
-        Assert.assertEquals(actual, expected, "actual does not match expected" );
+        Assert.assertEquals(actual, expected, "actual does not match expected");
+        WebElement option = driver.findElement(By.xpath("//div[@class='example']/h3"));
+
+        if (option.getText().equals("Dropdown List")) {
+            System.out.println("dropdown selected" + option.getText() + "matches");
+        }
     }
 }
